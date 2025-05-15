@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 🚀 Déploiement FTP vers Free
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
         with:
           server: ftpperso.free.fr
           username: ${{ secrets.FREE_FTP_USERNAME }}
           password: ${{ secrets.FREE_FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: / # Racine de l’hébergement Free
-          local-dir: ./ # Répertoire local à envoyer (ici : tout le dépôt)
-          dangerous-clean-slate: true # Supprime les fichiers obsolètes côté serveur
+          server-dir: /
+          local-dir: ./
+          dangerous-clean-slate: true
