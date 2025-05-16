@@ -1,4 +1,4 @@
-name: Déploiement vers Pages Perso Free
+name: Déploiement vers Free.fr (FTP)
 
 on:
   push:
@@ -6,20 +6,18 @@ on:
       - main
 
 jobs:
-  deploy:
+  ftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: 📦 Récupération du dépôt
         uses: actions/checkout@v3
 
-      - name: 🚀 Déploiement FTP vers Free
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 🔁 Déploiement FTP vers Free
+        uses: SebastianPatten/ftp-action@v2.1.0
         with:
-          server: ftpperso.free.fr
+          host: ftpperso.free.fr
           username: ${{ secrets.FREE_FTP_USERNAME }}
           password: ${{ secrets.FREE_FTP_PASSWORD }}
-          protocol: ftp
           port: 21
-          local-dir: ./
-          dangerous-clean-slate: true
+          localDir: ./
