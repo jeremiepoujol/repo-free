@@ -14,10 +14,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 🔁 Déploiement FTP vers Free
-        uses: SebastianPatten/ftp-action@v2.1.0
+        uses: easingthemes/ftp-deploy-action@v1.2.2
         with:
-          host: ftpperso.free.fr
-          username: ${{ secrets.FREE_FTP_USERNAME }}
-          password: ${{ secrets.FREE_FTP_PASSWORD }}
-          port: 21
-          localDir: ./
+          ftp-server: ftp://ftpperso.free.fr
+          ftp-username: ${{ secrets.FREE_FTP_USERNAME }}
+          ftp-password: ${{ secrets.FREE_FTP_PASSWORD }}
+          local-dir: ./
